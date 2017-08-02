@@ -1,21 +1,26 @@
 require_relative 'bike'
 
 class DockingStation
-  attr_reader :bike
+  @count = 0
+  class << self
+    attr_reader :bike
+  end
+
   def intiliaze
     @bike = bike
+    self.class.count +=1
   end
 
-  def bike
-    puts "bike is here"
+ def release_bike
+   @bike = Bike.new
+   if @bike.count > 20
+     fail "No more bikes"
   end
+ end
 
-  def release_bike
-    Bike.new
-  end
 
-  def dock(bike)
+
+  def dock_bike(bike)
       puts "#{bike} has been docked"
   end
-
 end

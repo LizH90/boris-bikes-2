@@ -7,6 +7,9 @@ describe DockingStation do
       it { is_expected.to respond_to(:dock)}
       describe "has a bike" do
         it { is_expected.to respond_to(:bike)}
+          it "error message when there are no more bikes" do
+            expect {release_bike}.to raise_error("No more bikes")
+        end
       end
     end
   end
