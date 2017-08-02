@@ -6,11 +6,16 @@ class DockingStation
     @bike = bike
   end
 
-  def release_bike
-    @bike = Bike.new
+  def bike
+    puts "bike is here"
   end
 
-  def dock_bike(bike)
-      puts "Bike has been docked"
+  def release_bike
+    Bike.new
   end
+
+  def dock(bike)
+      puts "#{bike} has been docked"
+  end
+
 end
